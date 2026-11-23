@@ -1,7 +1,7 @@
 # 何のページか
 プロフィールサイト
 # 公開URL
-https://1424064.github.io/profile/
+https://ta6ta6.github.io/profile/
 # 使った道具
 - Gemini
 - VS Code
