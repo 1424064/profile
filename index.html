@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゆめのプロフィールサイト</title>
-  <!-- Tailwind CSS & daisyUI CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-base-200 min-h-screen flex flex-col justify-between">
 
-  <!-- ナビバー (Navbar) -->
   <header class="navbar bg-base-100 shadow-md sticky top-0 z-50 px-4">
     <div class="flex-1">
       <a href="#" class="btn btn-ghost text-xl font-bold">ゆめ Profile</a>
@@ -27,10 +25,8 @@
 
   <main class="container mx-auto px-4 py-8 max-w-4xl space-y-12 flex-grow">
 
-    <!-- ひとことセクション -->
     <section id="about" class="hero bg-base-100 rounded-2xl shadow-xl p-6 md:p-8 border border-base-300">
       <div class="hero-content text-center flex-col">
-        <!-- アバター (Avatar Placeholder) -->
         <div class="avatar placeholder mb-2">
           <div class="bg-primary text-primary-content rounded-full w-24 h-24 flex items-center justify-center text-4xl font-bold shadow-md">
             <span>ゆ</span>
@@ -44,48 +40,51 @@
         <p class="text-base md:text-lg font-medium text-base-content/80 max-w-md">
           💬 運動してご飯を食べてしっかり寝ることが好きです。
         </p>
+
+        <button id="more-btn" class="btn btn-primary btn-sm mt-4" type="button">
+          もっと見る
+        </button>
+
+        <p id="my-boom" class="hidden mt-4 p-4 bg-base-200 rounded-xl text-sm md:text-base text-base-content/80 max-w-md">
+          ♨️ マイブーム（温泉）：休日にゆっくり温泉に浸かって、運動や日々の疲れを癒やすのが最近のマイブームです。
+        </p>
       </div>
     </section>
 
-    <!-- 好きなものセクション（画面サイズ問わず常に横並び3列） -->
     <section id="likes">
       <h2 class="text-2xl font-bold text-center mb-6">❤️ 好きなもの</h2>
       <div class="grid grid-cols-3 gap-3 md:gap-6">
         
-        <!-- カード1: サッカー -->
         <div class="card bg-base-100 shadow-lg border border-base-300 hover:shadow-xl transition-shadow">
           <div class="card-body items-center text-center p-3 md:p-6">
             <div class="text-3xl md:text-5xl mb-1">⚽</div>
             <h3 class="card-title text-sm md:text-xl font-bold">サッカー</h3>
             <span class="badge badge-accent badge-xs md:badge-md my-1">Sports</span>
-            <p class="text-xs md:text-sm text-base-content/70">体を動かして汗を流すのが最高！観戦するのも自分でプレイするのも大好きです。</p>
+            <p class="text-xs md:text-sm text-base-content/70">体を動かすのも、試合を観るのも大好き！</p>
           </div>
         </div>
 
-        <!-- カード2: 旅行 -->
         <div class="card bg-base-100 shadow-lg border border-base-300 hover:shadow-xl transition-shadow">
           <div class="card-body items-center text-center p-3 md:p-6">
             <div class="text-3xl md:text-5xl mb-1">✈️</div>
             <h3 class="card-title text-sm md:text-xl font-bold">旅行</h3>
             <span class="badge badge-primary badge-xs md:badge-md my-1">Outdoor</span>
-            <p class="text-xs md:text-sm text-base-content/70">新しい場所に行って見たことのない景色に出会ったり、美味しい名物を食べる旅が好きです。</p>
+            <p class="text-xs md:text-sm text-base-content/70">新しい景色や美味しい名物に出会う旅が好きです！</p>
           </div>
         </div>
 
-        <!-- カード3: からあげ -->
         <div class="card bg-base-100 shadow-lg border border-base-300 hover:shadow-xl transition-shadow">
           <div class="card-body items-center text-center p-3 md:p-6">
             <div class="text-3xl md:text-5xl mb-1">🍗</div>
             <h3 class="card-title text-sm md:text-xl font-bold">からあげ</h3>
             <span class="badge badge-secondary badge-xs md:badge-md my-1">Food</span>
-            <p class="text-xs md:text-sm text-base-content/70">外はサクサク、中はジューシーなからあげが大好物。美味しいお店を探すのも趣味です。</p>
+            <p class="text-xs md:text-sm text-base-content/70">サクサクでジューシーなからあげが大好物！</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 最近学んでいることセクション -->
     <section id="learning">
       <h2 class="text-2xl font-bold text-center mb-6">💪 最近学んでいること</h2>
       <div class="card bg-base-100 shadow-lg border border-base-300">
@@ -101,7 +100,6 @@
       </div>
     </section>
 
-    <!-- この授業で作ったものセクション -->
     <section id="works">
       <h2 class="text-2xl font-bold text-center mb-6">💻 この授業で作ったもの</h2>
       <div class="card bg-base-100 shadow-lg border border-base-300">
@@ -123,12 +121,20 @@
 
   </main>
 
-  <!-- フッター (Footer) -->
   <footer class="footer footer-center p-6 bg-base-100 text-base-content border-t border-base-300">
     <aside>
       <p>© ゆめ 2026</p>
     </aside>
   </footer>
 
+  <script>
+    const moreBtn = document.getElementById('more-btn'); // 「もっと見る」ボタンの要素を取得する
+    const myBoom = document.getElementById('my-boom'); // マイブーム（温泉）の段落を取得する
+
+    moreBtn.addEventListener('click', () => { // ボタンがクリックされたときの処理を登録する
+      myBoom.classList.toggle('hidden'); // hiddenクラスを切り替えて表示・非表示を変える
+      moreBtn.textContent = myBoom.classList.contains('hidden') ? 'もっと見る' : '閉じる'; // 状態に合わせてボタンの文字を変える
+    }); // クリックイベントの処理を終了する
+  </script>
 </body>
 </html>
